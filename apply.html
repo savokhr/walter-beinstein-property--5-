@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply &mdash; Elite Properties</title>
+    <!-- CSS imports global styles & custom fonts -->
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-cream text-charcoal font-sans selection:bg-forest selection:text-cream min-h-screen flex flex-col justify-between">
+
+    <!-- 1. NAVIGATION HEADER (Scrolled Glassmorphism Layer) -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-cream/95 backdrop-blur-md py-3 border-b border-sand/60 shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+        
+        <!-- Logo Left (Centered alignment on desktop) -->
+        <a
+          href="/"
+          class="font-serif text-2xl tracking-tighter text-charcoal cursor-pointer hover:opacity-80 transition-all text-left"
+          id="nav-logo"
+          style="font-weight: 800;"
+        >
+          Elite Properties
+        </a>
+
+        <!-- Desktop Navigation Items (Pointing back to homepage anchors) -->
+        <nav class="hidden md:flex items-center space-x-8 lg:space-x-10">
+          <a href="/#hero" class="nav-link-underline font-sans text-[11px] tracking-widest uppercase text-charcoal/80 cursor-pointer py-1 font-semibold">Home</a>
+          <a href="/#philosophy" class="nav-link-underline font-sans text-[11px] tracking-widest uppercase text-charcoal/80 cursor-pointer py-1 font-semibold">About Us</a>
+          <a href="/#collection" class="nav-link-underline font-sans text-[11px] tracking-widest uppercase text-charcoal/80 cursor-pointer py-1 font-semibold">Search</a>
+          <a href="/apply" class="nav-link-underline font-sans text-[11px] tracking-widest uppercase text-forest cursor-pointer py-1 font-bold">Registration Form</a>
+          <a href="/#contact-section" class="nav-link-underline font-sans text-[11px] tracking-widest uppercase text-charcoal/80 cursor-pointer py-1 font-semibold">Contact Us</a>
+        </nav>
+
+        <!-- Prominent Gold-Toned CTA Anchor -->
+        <div class="flex items-center space-x-4">
+          <a
+            href="/apply"
+            class="hidden md:block bg-forest text-cream font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase px-6 py-3 rounded-xl cursor-pointer transition-all duration-300 font-bold hover:bg-forest/90 shadow-sm text-center"
+          >
+            Apply Now
+          </a>
+
+          <!-- Burger Button Mobile -->
+          <button id="mobile-menu-toggle" class="md:hidden text-charcoal focus:outline-none p-1.5" aria-label="Toggle Mobile Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-cream/98 z-50 flex-col justify-between p-8 hidden md:hidden">
+      <div class="flex items-center justify-between">
+        <span class="font-serif text-2xl text-charcoal" style="font-weight: 800;">Elite Properties</span>
+        <button id="mobile-menu-close" class="text-charcoal p-1.5 focus:outline-none" aria-label="Close Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col space-y-6 my-auto text-left">
+        <a href="/#hero" class="mobile-nav-link text-left font-serif text-2xl text-charcoal">Home</a>
+        <a href="/#philosophy" class="mobile-nav-link text-left font-serif text-2xl text-charcoal">About Us</a>
+        <a href="/#collection" class="mobile-nav-link text-left font-serif text-2xl text-charcoal">Search Properties</a>
+        <a href="/apply" class="mobile-nav-link text-left font-serif text-2xl text-forest font-semibold">Registration Form</a>
+        <a href="/#contact-section" class="mobile-nav-link text-left font-serif text-2xl text-charcoal">Contact Us</a>
+      </nav>
+
+      <div class="space-y-6">
+        <div class="w-full h-px bg-sand/60"></div>
+        <a
+          href="/apply"
+          class="mobile-nav-link w-full bg-forest text-cream font-sans text-xs tracking-widest uppercase py-4 rounded-xl cursor-pointer block text-center shadow-lg font-bold"
+        >
+          Apply Now
+        </a>
+      </div>
+    </div>
+
+
+    <!-- 2. REGISTRATION / APPLICATION FORM SECTION -->
+    <main class="pt-28 pb-24 md:pt-36 md:pb-36 bg-cream flex-grow">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mx-auto text-center space-y-4">
+          <span class="font-sans text-[10px] tracking-[0.25em] uppercase text-sage font-bold block">Secure Client Onboarding</span>
+          <h1 class="font-serif text-4xl md:text-5xl text-charcoal font-light leading-tight">
+            Apply to <span class="italic text-forest">Rent or Buy</span> a Home
+          </h1>
+          <p class="font-sans text-xs text-charcoal/60 leading-relaxed max-w-xl mx-auto">
+            Complete the form below to begin your application. Our team will review your details and respond within 12 hours.
+          </p>
+          <div class="w-16 h-px bg-sage mx-auto mt-6"></div>
+        </div>
+
+        <!-- Form Card Wrapper -->
+        <div class="max-w-3xl mx-auto">
+          <form id="luxury-app-form" class="bg-cream rounded-2xl p-8 md:p-12 border border-sand/60 shadow-xl space-y-8">
+            <h3 class="font-serif text-2xl md:text-3xl text-charcoal font-light pb-4 border-b border-sand/40 text-left">
+              Registration <span class="italic font-normal text-forest">Application</span> Form
+            </h3>
+
+            <!-- Intent Toggle tab selector -->
+            <div class="space-y-2 text-left">
+              <span class="block font-sans text-[10px] tracking-wider uppercase text-charcoal/40 font-bold">Transaction Intent</span>
+              <div class="grid grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  id="intent-rent-tab"
+                  class="px-6 py-3.5 bg-forest text-cream font-sans text-[10px] tracking-widest uppercase rounded-xl cursor-pointer font-bold text-center transition-all duration-300 shadow-xs"
+                >
+                  I want to Rent
+                </button>
+                <button
+                  type="button"
+                  id="intent-buy-tab"
+                  class="px-6 py-3.5 bg-sand/40 text-charcoal/60 font-sans text-[10px] tracking-widest uppercase rounded-xl cursor-pointer font-bold text-center transition-all duration-300 hover:bg-sand/60"
+                >
+                  I want to Buy
+                </button>
+              </div>
+              <!-- Hidden input tracking selected state -->
+              <input type="hidden" id="app-intent-type" value="Rent" />
+            </div>
+
+            <!-- Full Name Fields Side-by-Side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div class="space-y-2">
+                <label for="app-first-name" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">First Name</label>
+                <input
+                  type="text"
+                  id="app-first-name"
+                  required
+                  placeholder="e.g. John"
+                  class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 w-full font-medium"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="app-last-name" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Last Name</label>
+                <input
+                  type="text"
+                  id="app-last-name"
+                  required
+                  placeholder="e.g. Sterling"
+                  class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 w-full font-medium"
+                />
+              </div>
+            </div>
+
+            <!-- Contact Credentials -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div class="space-y-2">
+                <label for="app-email" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Email Address</label>
+                <input
+                  type="email"
+                  id="app-email"
+                  required
+                  placeholder="e.g. john@sterling.com"
+                  class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 w-full font-medium"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="app-phone" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Phone Number</label>
+                <input
+                  type="tel"
+                  id="app-phone"
+                  required
+                  placeholder="e.g. (555) 019-2049"
+                  class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 w-full font-medium"
+                />
+              </div>
+            </div>
+
+            <!-- Checkbox Option List: Credit Score Range (Exactly one requested) -->
+            <div class="space-y-3.5 text-left">
+              <span class="block font-sans text-[10px] tracking-wider uppercase text-charcoal/40 font-bold">Credit Score Range (Check one)</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <label class="flex items-center space-x-2.5 bg-cream/30 p-3 rounded-xl border border-sand/60 cursor-pointer hover:bg-sand/20 transition-all font-medium text-xs">
+                  <input type="radio" name="credit_score" value="350-579" class="accent-forest" />
+                  <span>350 &ndash; 579</span>
+                </label>
+                <label class="flex items-center space-x-2.5 bg-cream/30 p-3 rounded-xl border border-sand/60 cursor-pointer hover:bg-sand/20 transition-all font-medium text-xs">
+                  <input type="radio" name="credit_score" value="580-669" class="accent-forest" />
+                  <span>580 &ndash; 669</span>
+                </label>
+                <label class="flex items-center space-x-2.5 bg-cream/30 p-3 rounded-xl border border-sand/60 cursor-pointer hover:bg-sand/20 transition-all font-medium text-xs">
+                  <input type="radio" name="credit_score" value="670-739" class="accent-forest" />
+                  <span>670 &ndash; 739</span>
+                </label>
+                <label class="flex items-center space-x-2.5 bg-cream/30 p-3 rounded-xl border border-sand/60 cursor-pointer hover:bg-sand/20 transition-all font-medium text-xs">
+                  <input type="radio" name="credit_score" value="740+" checked class="accent-forest" />
+                  <span>740+ Exception</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dynamic Lease Duration Section -->
+            <div id="field-lease-duration" class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div class="space-y-2">
+                <label for="app-lease" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Requested Lease Term</label>
+                <select id="app-lease" class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal cursor-pointer w-full font-medium">
+                  <option value="6 months">6 Months</option>
+                  <option value="1 year" selected>1 Year Standard</option>
+                  <option value="2 years">2 Years Extended</option>
+                  <option value="Flexible">Flexible / Month-To-Month</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label for="app-income" id="field-income-label" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Estimated Monthly Income (USD)</label>
+                <input
+                  type="text"
+                  id="app-income"
+                  required
+                  placeholder="e.g. $18,500"
+                  class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 w-full font-medium"
+                />
+              </div>
+            </div>
+
+            <!-- Spatial Requirements -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div class="space-y-2">
+                <label for="app-beds" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Desired Bedrooms (Required)</label>
+                <select id="app-beds" required class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal cursor-pointer w-full font-medium">
+                  <option value="1">1 Bedroom</option>
+                  <option value="2">2 Bedrooms</option>
+                  <option value="3" selected>3 Bedrooms</option>
+                  <option value="4">4 Bedrooms</option>
+                  <option value="5+">5+ Bedrooms</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label for="app-baths" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Desired Bathrooms (Required)</label>
+                <select id="app-baths" required class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal cursor-pointer w-full font-medium">
+                  <option value="1">1 Bathroom</option>
+                  <option value="2">2 Bathrooms</option>
+                  <option value="3" selected>3 Bathrooms</option>
+                  <option value="4+">4+ Bathrooms</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Reason for Moving Textarea -->
+            <div class="space-y-2 text-left">
+              <label for="app-reason" class="font-sans text-[10px] tracking-wider uppercase text-charcoal/50 font-bold">Reason for Moving / Purchase Intent</label>
+              <textarea
+                id="app-reason"
+                rows="4"
+                placeholder="What lifestyle shift, relocational timeline, or design requirement drives your residential search?"
+                class="bg-cream/40 border border-sand/80 px-4 py-3.5 rounded-xl font-sans text-xs focus:outline-none focus:border-forest text-charcoal placeholder-charcoal/30 resize-none w-full font-medium"
+              ></textarea>
+            </div>
+
+            <!-- Radios Checklist Options (Smoking, Pets, Car, Criminal Record) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-left border-y border-sand/40 py-6">
+              <div class="space-y-2">
+                <span class="block font-sans text-[9px] uppercase tracking-wider text-charcoal/40 font-bold">Smoking?</span>
+                <div class="flex items-center space-x-4">
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="smoking" value="yes" class="accent-forest" /> <span>Yes</span>
+                  </label>
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="smoking" value="no" checked class="accent-forest" /> <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <span class="block font-sans text-[9px] uppercase tracking-wider text-charcoal/40 font-bold">Pets?</span>
+                <div class="flex items-center space-x-4">
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="pets" value="yes" class="accent-forest" /> <span>Yes</span>
+                  </label>
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="pets" value="no" checked class="accent-forest" /> <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <span class="block font-sans text-[9px] uppercase tracking-wider text-charcoal/40 font-bold">Car?</span>
+                <div class="flex items-center space-x-4">
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="car" value="yes" checked class="accent-forest" /> <span>Yes</span>
+                  </label>
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="car" value="no" class="accent-forest" /> <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <span class="block font-sans text-[9px] uppercase tracking-wider text-charcoal/40 font-bold">Criminal Record?</span>
+                <div class="flex items-center space-x-4">
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="criminal" value="yes" class="accent-forest" /> <span>Yes</span>
+                  </label>
+                  <label class="flex items-center space-x-1 text-xs cursor-pointer">
+                    <input type="radio" name="criminal" value="no" checked class="accent-forest" /> <span>No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fee payment method selection segment (Brand Tile Selector) -->
+            <div class="space-y-4 text-left">
+              <div class="space-y-1">
+                <span class="block font-sans text-[10px] tracking-wider uppercase text-charcoal/40 font-bold">Verification Fee Processing (100% Refundable)</span>
+                <p class="text-[11px] text-charcoal/50 leading-relaxed">
+                  How do you intend to pay the application fee? (Refunded or deducted from your initial payment upon approval)
+                </p>
+              </div>
+
+              <!-- Payment Logo Grid with real SVG brand icons -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                
+                <button type="button" data-method="CashApp" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/cashapp.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="CashApp logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">CashApp</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="PayPal" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/paypal.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="PayPal logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">PayPal</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="Zelle" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/zelle.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="Zelle logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">Zelle</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="Apple Pay" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/applepay.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="Apple Pay logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">Apple Pay</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="Chime" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/chime.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="Chime logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">Chime</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="Bitcoin" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/bitcoin.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="Bitcoin logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">Bitcoin</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <button type="button" data-method="Venmo" class="payment-method-tile flex flex-col items-center justify-between p-5 bg-cream/40 border border-sand/60 rounded-xl cursor-pointer hover:border-forest transition-all duration-300 min-h-[120px]">
+                  <img src="/icons/venmo.svg" class="h-8 w-auto filter drop-shadow-sm mb-2 opacity-85 hover:opacity-100 transition-opacity" alt="Venmo logo" referrerPolicy="no-referrer" />
+                  <span class="font-sans text-xs font-semibold text-charcoal mt-auto">Venmo</span>
+                  <span class="tile-checkmark hidden text-forest text-[11px] font-bold mt-1">✓ Selected</span>
+                </button>
+
+                <div class="p-5 bg-sand/30 border border-dashed border-sand/80 rounded-xl flex flex-col items-center justify-center text-center min-h-[120px]">
+                  <span class="text-[9px] font-mono uppercase text-charcoal/40 font-bold leading-tight">Private Vault Security</span>
+                </div>
+
+              </div>
+              <input type="hidden" id="app-payment-method-input" required value="" />
+            </div>
+
+            <!-- Discretion/agreement box -->
+            <div class="flex items-start space-x-3 text-left">
+              <input type="checkbox" id="app-terms" required class="mt-1 accent-forest cursor-pointer" />
+              <label for="app-terms" class="font-sans text-xs text-charcoal/70 leading-relaxed cursor-pointer select-none font-medium">
+                I hereby verify that all statements provided are true legal representations. I authorize the Elite Properties Registrar Office to perform soft background validation and reference reviews as requested.
+              </label>
+            </div>
+
+            <!-- Submit trigger button -->
+            <button
+              type="submit"
+              id="app-submit-btn"
+              class="w-full bg-forest text-cream font-sans text-xs tracking-[0.2em] uppercase py-4.5 rounded-xl font-bold cursor-pointer transition-all duration-300 shadow-md hover:bg-forest/90 hover:shadow-xl flex items-center justify-center space-x-2"
+            >
+              <span>Submit Application</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </main>
+
+
+    <!-- SUBMISSION CONFIRMATION POP-UP (Modal Overlay Layout) -->
+    <div id="submission-confirmation-modal" class="fixed inset-0 z-50 bg-charcoal/70 backdrop-blur-md items-center justify-center p-4 hidden">
+      <div class="bg-cream rounded-2xl w-full max-w-lg shadow-2xl relative border border-sand/50 overflow-hidden fade-in-up active p-8 md:p-10 space-y-6">
+        <!-- Overlay envelope & check circle -->
+        <div class="flex flex-col items-center text-center space-y-3.5 pb-6 border-b border-sand">
+          <div class="w-16 h-16 rounded-full bg-forest/10 flex items-center justify-center text-forest">
+            <!-- Mail envelope icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <h3 class="font-serif text-3xl text-forest font-semibold italic leading-snug">Application Submitted!</h3>
+          <span class="block font-mono text-[9px] uppercase tracking-widest text-charcoal/40">Reference Registry ID Generated</span>
+        </div>
+
+        <!-- Body text instructions -->
+        <div class="font-sans font-light text-xs md:text-sm text-charcoal/80 leading-relaxed space-y-3.5 text-left">
+          <p>Dear Client,</p>
+          <p>
+            Your comprehensive dossier has been logged under secured vaults. The Registrar Office will initiate validation protocols using the coordinate provided: <span id="confirm-client-email" class="font-bold text-charcoal font-serif">your-email</span>.
+          </p>
+          <p>
+            An official representative will contact you via phone or secure portal within the next <strong>12 hours</strong> to proceed with verification processing and handle the refundable application processing fee.
+          </p>
+          <p class="pt-2 font-serif text-forest italic font-medium">Warmest regards,<br />&mdash; The Elite Properties Board</p>
+        </div>
+
+        <!-- Got it button -->
+        <button
+          id="close-confirm-modal-btn"
+          class="w-full bg-forest text-cream font-sans text-xs tracking-[0.2em] uppercase py-3.5 rounded-xl font-bold cursor-pointer transition-all duration-300 shadow-sm hover:bg-forest/90"
+        >
+          Got It, Thank You
+        </button>
+      </div>
+    </div>
+
+
+    <!-- 14. FOOTER -->
+    <footer class="bg-[#1E2418] text-cream pt-20 pb-12 relative z-10 border-t border-white/5 w-full">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pb-16 border-b border-white/10">
+        
+        <!-- Column 1: Brand details -->
+        <div class="lg:col-span-4 space-y-6 text-left">
+          <span class="font-serif text-2xl tracking-tighter text-cream block" style="font-weight: 800;">Elite Properties</span>
+          <p class="font-sans font-light text-xs text-cream/70 leading-relaxed max-w-sm">
+            Boutique private estate brokerage serving high-net-worth clients across premium locations in America. Meticulous design, complete discretion, and legal transparency.
+          </p>
+          <p class="font-mono text-[9px] text-cream/40 uppercase tracking-widest">
+            EST. 2026 &mdash; METROPOLITAN CHARTERS
+          </p>
+        </div>
+
+        <!-- Column 2: Sitemap Navigation links -->
+        <div class="lg:col-span-3 text-left space-y-4">
+          <span class="font-mono text-[10px] tracking-widest uppercase text-cream/40 block font-bold">The Sitemap</span>
+          <ul class="space-y-2.5 font-sans text-xs font-light text-cream/70">
+            <li><a href="/#hero" class="hover:text-cream cursor-pointer text-left block">Home Base</a></li>
+            <li><a href="/#philosophy" class="hover:text-cream cursor-pointer text-left block">About Us</a></li>
+            <li><a href="/#collection" class="hover:text-cream cursor-pointer text-left block">Search Properties</a></li>
+            <li><a href="/#staging" class="hover:text-cream cursor-pointer text-left block">Home Staging</a></li>
+            <li><a href="/apply" class="hover:text-cream cursor-pointer text-left block">Registration Form</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Schedule Callback Block -->
+        <div class="lg:col-span-5 text-left space-y-6">
+          <span class="font-mono text-[10px] tracking-widest uppercase text-cream/40 block font-bold">Private Ledger Callback</span>
+          <p class="font-sans font-light text-xs text-cream/70 leading-relaxed max-w-md">
+            Skip standard timelines. Submit a coordinate registry request to receive prompt callbacks from our senior management board.
+          </p>
+
+          <div class="flex items-center space-x-4 bg-white/5 p-4 rounded-xl border border-white/10">
+            <div class="space-y-1">
+              <span class="block text-[10px] tracking-widest text-sage uppercase font-bold">VIP Concierge Line</span>
+              <p class="text-xs text-cream/90 font-medium">Available 24/7 on direct dial</p>
+            </div>
+            <a
+              href="/#contact-section"
+              class="bg-cream text-[#1E2418] font-sans text-[10px] tracking-widest uppercase px-5 py-3 rounded-lg font-bold cursor-pointer hover:bg-sand transition-all duration-300 ml-auto shrink-0 text-center"
+            >
+              Schedule Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal footer metadata -->
+      <div class="max-w-7xl mx-auto px-6 md:px-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] font-mono text-cream/40">
+        <span>&copy; 2026 Elite Properties Group USA. All rights reserved.</span>
+        <div class="flex items-center space-x-6">
+          <a href="#" class="hover:text-cream">Discretion Pledge</a>
+          <span>&bull;</span>
+          <a href="#" class="hover:text-cream">Legal Compliance Acts</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Application Javascript Client Engine -->
+    <script type="module" src="/src/apply.js"></script>
+  </body>
+</html>

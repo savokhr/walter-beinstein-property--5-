@@ -1,0 +1,6 @@
+{
+  "name": "Walter Beinstein Property",
+  "description": "An editorial-style web application for Walter Beinstein Property, showcasing quiet luxury property rentals with an asymmetrical collection grid, material slider, dynamic filters, and booking inquiry flow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
