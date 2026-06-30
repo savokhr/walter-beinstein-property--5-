@@ -1,8 +1,6 @@
 import "dotenv/config";
 import express from "express";
-import path from "path";
 import nodemailer from "nodemailer";
-import { createServer as createViteServer } from "vite";
 
 // Startup diagnostics for SMTP variables
 const requiredSmtpVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS', 'SMTP_FROM'];
@@ -23,7 +21,6 @@ if (process.env.SMTP_HOST === "mail.walterbeinsteinproperty.com") {
 }
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.json() as any);
 app.use(express.urlencoded({ extended: true }) as any);
@@ -230,37 +227,7 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// Setup Vite Dev Server / Static files handler
-async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares as any);
-  } else {
-    const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath) as any);
-    app.get("/apply", (req, res) => {
-      res.sendFile(path.join(distPath, "apply.html"));
-    });
-    app.get("/apply.html", (req, res) => {
-      res.sendFile(path.join(distPath, "apply.html"));
-    });
-    app.get("*all", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
-  }
-
-  // Vercel invokes this module as a serverless function per-request via the
-  // default export below; it must not bind a port there.
-  if (!process.env.VERCEL) {
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`Server running on http://0.0.0.0:${PORT}`);
-    });
-  }
-}
-
-startServer();
-
+// Deployed to Vercel as a serverless function (see vercel.json) — this file
+// must stay free of dev-only tooling like vite, which Vercel's bundler can't
+// run inside a function. Local dev/static hosting lives in dev-server.ts.
 export default app;
